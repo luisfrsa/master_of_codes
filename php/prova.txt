@@ -1,0 +1,29 @@
+1) Criar uma aplicação que manipule data e hora, trabalhando com periodos de tempo e considerando timezones;
+
+2) Criar uma aplicação em tempo real, multi-usuário que consuma e disponibilize dados através de socket com tratamento de erros;
+
+3) Criar uma aplicação com no minimo 80% de cobertura de teste unitário, demonstrando o uso de stubs e mocks;
+
+4) Criar uma manipulação de imagem com aplicação de filtros, corte/redimensionamento, colagem de imagens e criação de imagem dinâmica;
+
+5) Criar uma aplicação onde realize a extração de informaçõs utilizando cURL em um servidor externo periodicamente, onde os períodos possam ser configurados através de linha de comando utilizando um sistema de tarefas agendadas do SO de sua preferência;
+
+6) Criar mecanismo de criptografia com chave composta, armazenando as chaves de forma segura;
+
+7) Criar uma aplicação que utilize um exemplo prático que utilize Reflection para a leitura dos atributos da classe e crie um formulário de acordo com os tipos, em seguida exiba uma listagem com os dados obtidos;
+
+8) Criar uma aplicação Orientada a Objetos que utilize um exemplo prático de PSR e Namespaces onde seja utilizado nas classes exemplos de Herança e Interfaces;
+
+9) Criar uma aplicação que leia, crie, altere e exporte arquivos nas extensões .pdf e .csv;
+
+10) Desenvolver um sistema de reuso de código utilizando o conceito de Trait que resolva um conflito de implementação de métodos e altere sua visibilidade usando classes e traits;
+
+11) Implementar um servidor SMTP para envio de E-mail dinâmico com imagens para diferentes destinatários onde cada um receba informações conforme seus dados de destinatário;
+
+12) Criar uma aplicação que utilize a classe DOMDocument para manipulação de uma página HTML e seja capaz de customizar e apresentar os dados que foram manipulados.
+
+13) Implementar um sistema que utilize o pacote i18n para internacionalização onde deverá ser configurável vários textos em várias linguagens.
+
+14) Configurar um servidor com o sistema operacional e servidor web de sua escolha onde esteja instalado a última versão do PHP com FPM. O sistema deverá ser capaz de tratar possíveis erros HTTP de cliente(400, 401, 403, 404 e 405) e servidor(500, 502, 503 e 504) redirecionando para uma URL amigável para cada código, apresentando uma breve descrição do problema e armazenar um log de todas as ocorrências de erros HTTP em arquivo; ( Deverá ser anexado um passo-a-passo de como deverá ser configurado o servidor )
+
+15) Desenvolver uma API REST com JSON orientado a objetos que terá a responsabilidade de controlar o cadastro, autenticação, permissões de acesso de usuários com dois perfis destintos. O perfil "admin" poderá consultar/alterar/excluir os dados(exeto a senha) de todos os usuários e o perfil "user" terá a permissão de consultar e alterar apenas os próprios dados. Os dados dos usuários deverão conter no mínimo quatro campos obrigatórios e 2 opcionais e serem persistidos em um banco de dados da sua escolha utilizando PDO ou ODBC, com a capacidade de armazenar pelo menos um milhão de registros e a API deverá ser capaz de aplicar conceitos de paginação, podendo filtrar e ordenar no mínimo três campos distintos. Deverão ser criadas e utilizadas EXCEPTIONS para tratamento de excessões da API. A API deverá ser imune a ataques de SQL Injection, Brute Force, XSS, CSRF;
