@@ -1,28 +1,16 @@
 var http = require('http');
+var login = require('./login');
+
+var json_values = {
+    hello: { 'hello': 'world' },
+};
+
+
+console.log(json_values);
+console.log(json_values.hello);
 
 http.createServer(function (request, res) {
-    res.end('Hello World!');
     handleRequest(request.method, res);
-}).listen(8080);
-
-function handleRequest(method, res) {
-    switch (method) {
-        case "GET":
-            console.log('GET Request');
-            break;
-        case "POST":
-            console.log('POST Request');
-            break;
-        case "PUT":
-            console.log('PUT Request');
-            break;
-        case "DELETE":
-            console.log('DELETE Request');
-            break
-        default:
-            res.writeHead(400);
-            return;
-            break;
-    }
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-}
+    res.write(JSON.stringify(json_values.hello));    
+    res.end();
+}).listen(3000);
