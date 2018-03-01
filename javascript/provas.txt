@@ -1,6 +1,6 @@
 1) Criar uma listagem com 7 campos com uma grande quantidade de dados (pelo menos 200.000 registros), exibindo pelo menos uma informação do tipo data e uma do tipo monetário, rodando em 2 navegadores diferentes sem travar, e exibindo um modal com os detalhes ao selecionar um registro;
 
-2) Utilizar ES6 com conceitos de modularização e orientação a objetos;
+INIT - 2) Utilizar ES6 com conceitos de modularização e orientação a objetos;
 
 3) Manipular data e hora, trabalhando com periodos de tempo, timezone, e manipulação de partes individuais da data e hora;
 
@@ -12,7 +12,7 @@
 
 7) Criar no minimo dois componentes de input e um componente visual com WebComponents, utilizando o conceito de ShadowDom, templates e decorators, e incluindo os componentes na tela utilizando o conceito de "import";
 
-8) Criar WebWorker que recebe informaçõe da tela e a atualiza;
+INIT - 8) Criar WebWorker que recebe informaçõe da tela e a atualiza;
 
 9) Trabalhar com armazenamento do estado da tela offline utilizando storage, e sincronizando as informações quando retomar a conexão;
 
