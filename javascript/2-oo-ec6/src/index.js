@@ -1,28 +1,42 @@
 import Alimento from './classes/Alimento.class';
-import Exception from './classes/Exception.class';
 import Exercicio from './classes/Exercicio.class';
+// import HumanoAbstract from './classes/HumanoAbstract.class';
 import Homem from './classes/Homem.class';
-import Mulher from './classes/Mulher.class';
+// import Mulher from './classes/Mulher.class';
 
-let laranja = new Alimento();
-laranja.setNome("laranja");
-laranja.setValorCalorico(60);
-console.log(laranja.getNome());
-console.log(laranja.getValorCalorico());
+let atleta = new Homem("Luis", 10000);
+console.log(atleta.toString());
 
+let banana = new Alimento();
+banana.setNome("Banana");
+banana.setValorCalorico(100);
 
-let homem = new Homem(1000);
-console.log(homem);
+let pao = new Alimento();
+pao.setNome("Pao");
+pao.setValorCalorico(150);
 
+let energetico = new Alimento();
+energetico.setNome("Energetico");
+energetico.setValorCalorico(250);
 
-// // join atividades para completar 2 ou + em 1 exercicio (classe + localstorage +whatever)
-// let bar = new MyModule();
+let alimentos = [
+    { alimento: banana, quantidade: 2 },
+    { alimento: pao, quantidade: 3 },
+    { alimento: energetico, quantidade: 1 }
+];
 
-// tryMe1(1); // ReferenceError: tryMe1 is not defined
-// tryMe2; // ReferenceError: tryMe2 is not defined
-// bar.tryMe1(1); // TypeError: bar.tryMe1 is not a function
-// bar.tryMe2; // undefined
+let triatlo = [
+    { exercicio: new Exercicio("natacao", 300), duracao: 1 },
+    { exercicio: new Exercicio("ciclismo", 200), duracao: 2 },
+    { exercicio: new Exercicio("maratona", 150), duracao: 3 }
+];
+alimentos.forEach(alimento => {
+    for (let i = 0; i < alimento.quantidade; i++) {
+        atleta.comer(alimento.alimento);
+    }
+});
+triatlo.forEach(exec => {
+    atleta.exercitar(exec.exercicio, exec.duracao);
+});
 
-// bar.tryMe3(1); // 101
-// bar.getTryMe1(1); // 3
-// bar.getTryMe2(); // 1234
+console.log(atleta.toString());

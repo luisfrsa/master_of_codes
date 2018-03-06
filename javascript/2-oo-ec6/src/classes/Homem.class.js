@@ -1,10 +1,8 @@
-// import HumanoAbstract from './HumanoAbstract.class';
-// export class Homem extends HumanoAbstract {
-export class Homem  {
-        constructor(calorias) {
-                // super();
-                // this.setSexo("H");
-                // this.setGastoPorHora(15);
-                // this.setCaloriasAcumuladas(calorias);
+import HumanoAbstract from './HumanoAbstract.class';
+export default class Homem extends HumanoAbstract {
+        constructor(nome,calorias) {
+                super(nome,calorias);
+                this.setSexo("H");
+                this.setGastoPorHora(15);
         }
 }

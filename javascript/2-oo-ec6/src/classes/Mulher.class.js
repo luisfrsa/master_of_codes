@@ -1,14 +1,8 @@
 // import HumanoAbstract from './HumanoAbstract.class';
-
-// class Mulher extends HumanoAbstract {
-class Mulher {
-        constructor() {
-                // super();
-                // this.setSexo("M");
-                // this.setGastoPorHora(10);
-                // this.setCaloriasAcumuladas(calorias);
-        }
-
-}
-
-export default Mulher;
+// export default class Mulher extends HumanoAbstract {
+//     constructor(nome, calorias) {
+//         super(nome, calorias);
+//         this.setSexo("M");
+//         this.setGastoPorHora(10);
+//     }
+// }

@@ -8,13 +8,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var _caloriasPorHora = caloriasPorHora;
+var _caloriasPorHora;
 
 var Exericio = exports.Exericio = function () {
     function Exericio(caloriasPorHora) {
         _classCallCheck(this, Exericio);
 
-        this.setCaloriasPorHora(caloriasPorHora);
+        _caloriasPorHora = caloriasPorHora;
     }
 
     _createClass(Exericio, [{

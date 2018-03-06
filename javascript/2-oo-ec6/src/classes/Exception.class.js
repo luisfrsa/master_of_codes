@@ -1,13 +1,14 @@
-export class Exception {
+export default class Exception {
     static checkClass(current, expect) {
+        
         let found, expectClassName, message;
         let currentClassName = current.constructor.name;
-        if (typeof (expect) == 'array') {
-            expectClassName = expect.reduce();
 
+        if (typeof (expect) == 'object') {
+            expectClassName = expect.reduce(_reduceClassNames, "");
             found = _checkClassArray(currentClassName, expect);
         } else {
-            expectClassName = expect.reduce(_reduceClassNames, "");
+            expectClassName = expect.constructor.name;
             found = _checkClassElem(currentClassName, expect);
         }
         if (!found) {
@@ -22,19 +23,19 @@ export class Exception {
     }
 }
 function _buildMessage(found, expected) {
-    return "Nao foi possível instanciar esta Classe, Esperado: [" + expected + "], encontrado [" + found + "]";
+    return "Nao foi possível instanciar esta Classe, Esperado: [" + expected.name + "], encontrado [" + found + "]";
 }
 
 function _checkClassArray(current, expecteds) {
-    return (expecteds.some(expClass => { return _checkSomeClass(current, expClass) }));
+    return (expecteds.some(expClass => { return _checkSomeClass(current, expClass.name);}));
 }
 
 function _checkClassElem(current, expect) {
-    return _checkSomeClass(current,expect);
+    return _checkSomeClass(current,expect.name);
 }
 
 function _reduceClassNames(valorAnterior, valorAtual) {
-    return valorAnterior + "|" + valorAtual.name
+    return valorAnterior + "|" + valorAtual.name;
 }
 function _checkSomeClass(current, expecteds) {
     return current == expecteds;
