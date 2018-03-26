@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="progressbar.js"></script>
+</head>
+
+<body>
+    wrks
+    <progress-bar complete="60"></progress-bar>
+    <script>
+        (function () {
+            let progress = document.querySelector('progress-bar'),
+                complete = 0;
+            console.log(progress);
+
+
+            let progressInterval = setInterval(() => {
+                console.log(complete);
+                complete += 1;
+                if (complete <= 100) {
+                    progress.setAttribute('complete', complete);
+                } else {
+                    clearInterval(progressInterval);
+                }
+            }, 100);
+        })();
+    </script>
+</body>
+
+</html>
