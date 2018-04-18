@@ -33,9 +33,8 @@ export default {
     modal
   },
   data() {
-    return {
-      countItem: 2000,
-      // countItem: 200000,
+    return {      
+      countItem: 200000,
       data: [],
       cidades: [
         "Maringá",

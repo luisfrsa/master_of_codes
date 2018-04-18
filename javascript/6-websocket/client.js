@@ -1,31 +1,28 @@
-// https://github.com/websockets/wsconst WebSocket = require('ws');
 
-const WebSocket = require('ws');
+var WebSocket = require('ws');
+var jwt = require('jsonwebtoken')
+var token = jwt.sign({ name: 'luis.alves' }, 'secret-key', { expiresIn: 15 * 24 * 60 * 60 * 1000 });
 
-const ws = new WebSocket('ws://localhost:3000');
-
-
-function noop() { }
+console.log("Iniciando conexão 200 c/ token valido");
+var ws = new WebSocket('ws://localhost:3000', { headers: { token: token } });
 
 ws.on('open', function open() {
-    console.log('.::open::.');
-    ws.send('open');
+    console.log('Abrindo conexao c/ o servidor');
+    ws.send('Mensagem do cliente solicitando conexao c/ o servidor');
     sendData();
-    
+
 });
 
 ws.on('message', function incoming(data) {
-    console.log('.::onMessageClient::.');
-    console.log(data);
+    console.log('Mensagem recebida do servidor: ' + data);
 });
 
-function sendData(){
+function sendData() {
+    const msgServidor = 'Ola servidor';
+    console.log('Iniciando loop de envio de mensagens do cliente....');
     setInterval(() => {
-        console.log('.::sendData::.');
-        ws.send('sendData');
+        console.log("Enviando mensagem ao servidor: " + msgServidor);
+        ws.send(msgServidor);
 
-        console.log('.::ping::.');        
-        ws.ping(noop);
-    }, 1000
-);
+    }, 1000);
 }

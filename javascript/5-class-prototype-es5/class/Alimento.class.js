@@ -5,6 +5,7 @@
  * @param {String} nome    
  * @param {Integer} calorias - calorias por grama
  */
+
 var Alimento = function (nome, calorias) {
     this.nome = nome;
     this.setValorCalorico(calorias);

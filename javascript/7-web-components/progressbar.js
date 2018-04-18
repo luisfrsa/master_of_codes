@@ -1,39 +1,54 @@
 //https://www.youtube.com/watch?v=Tus_GVxyOtU
 class ProgressBar extends HTMLElement {
 
-    constructor() {
-        super();
+  constructor() {
+    super();
+    this.shadow = this.createShadowRoot();
+    this._complete = 0;
+    this._corfundo = 'red';
+  }
 
-        this.shadow = this.createShadowRoot();
-        this._complete = 0;
-    }
+  get complete() {
+    return this._complete;
+  }
 
-    get complete() {
-        return this._complete;
-    }
+  set complete(val) {
+    this.setAttribute('complete', val);
+  }
+  get corfundo() {
+    return this._corfundo;
+  }
 
-    set complete(val) {
-        this.setAttribute('complete', val);
-    }
+  set corfundo(val) {
+    this.setAttribute('corfundo', val);
+  }
 
-    static get observedAttributes() {
-        return ['complete'];
-    }
+  static get observedAttributes() {
+    return ['complete', 'corfundo'];
+  }
 
-    attributeChangedCallback(name, oldVal, newVal) {
-        var innerBar = this.shadow.querySelector('.progress-bar-inner');
+  attributeChangedCallback(name, oldVal, newVal) {
+    var currentBar = this.shadow.querySelector('.progress-bar-inner');
 
-        switch (name) {
-            case 'complete':
-                this._complete = parseInt(newVal, 10) || 0;
-
-                innerBar.style.width = this.complete + '%';
-                innerBar.innerHTML = this.complete + '%';
+    switch (name) {
+      case 'complete':
+        this._complete = parseInt(newVal, 10) || 0;
+        currentBar.style.width = this.complete + '%';
+        if (currentBar.style) {
+          currentBar.innerHTML = this.complete + '%';
         }
+        break;
+      case 'corfundo':
+        this._corfundo = newVal;
+        if (currentBar.style) {
+          currentBar.style.background = newVal;
+        }
+        break;
     }
+  }
 
-    connectedCallback() {
-                var template = `
+  connectedCallback() {
+    var template = `
         <style>
         .progress-bar{
             width: 50%;
@@ -42,101 +57,19 @@ class ProgressBar extends HTMLElement {
           border-radius: 5px;
           color: #FFF;
         }
-          .progress-bar-inner {
+         .progress-bar-inner {
           height: 100%;
           line-height: 30px;
-          background: #2B2D42;
           text-align: center;
           border-radius: 5px;
-          transition: width 0.25s;
         }
          </style>
       <div class="progress-bar">
         <div class="progress-bar-inner">${this.complete}%</div>
-      </div>
-        `;
-        this.shadow.innerHTML = template;
-return;
-        var template = `
-      <style>
-        .progress-bar {
-          width: 50%;
-          height: 30px;
-          background-color: #EDF2F4;
-          border-radius: 5px;
-          color: #FFF;
-        }
-        .progress-bar-inner {
-          height: 100%;
-          line-height: 30px;
-          background: #2B2D42;
-          text-align: center;
-          border-radius: 5px;
-          transition: width 0.25s;
-        }
-      </style>
-      <div class="progress-bar">
-        <div class="progress-bar-inner">${this.complete}%</div>
-      </div>
-    `;
+      </div>`;
 
-        this.shadow.innerHTML = template;
-    }
-
+    this.shadow.innerHTML = template;
+  }
 }
 
 window.customElements.define('progress-bar', ProgressBar);
-
-// class ProgressBar extends HTMLElement {
-//     constructor() {
-//         super();
-//         this.shadow = this.createShadowRoot();
-//         this._complete = 0;
-//     }
-//     getComplete() {
-//         return this._complete;
-//     }
-//     setComplete(complete) {
-//         this.setAttribute('complete',val);
-//     }
-
-//     static getObservable(){
-//         return ['complete'];
-//     }
-//     attributeChangecallback(name, oldVal, newVal){
-//         let innerBar = this.shadow.querySelector('.progress-bar-inner');
-//         switch(name){
-//             case 'complete':
-//             this._complete = parseInt(newVal,10) || 0;
-//         }
-//         innerBar.style.width = this.complete + '%';
-//         innerBar.innerHTML = this.complete +'%';
-//     }
-//     connectedCallback(){
-//         var template = `
-//         <style>
-//         .progress-bar{
-//             width:50%;
-//             height:30px;
-//             background-collor:#edf2f4
-//             border-radius:5px;
-//             color:#fff;
-//         }
-//         .progress-bar-inner{
-//             height:100%;
-//             line-height:30px;
-//             background:2b2d42;
-//             text-align:center;
-//             border-radius:5px;
-//             transition:width 0.25s;
-            
-//         }
-//         </style>
-//         <div class="progress-bar">
-//         <div class="progress-bar-inner">{$this.complete}</div>
-//         </div>
-//         `;
-//         this.shadow.innerHTML = template;
-//     }
-// }
-// window.customElements.define('progress-bar',ProgressBar);
