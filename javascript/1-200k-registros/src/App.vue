@@ -2,7 +2,6 @@
 <template>
   <div id="app">
     <button v-show="data.length==0" v-on:click="buildData">LOAD DATA</button><br/>
-    <!-- <button type="button" class="btn" @click="showModal" > Open Modal! </button> -->
     <div v-show="data.length!=0">
       <modal v-show="isModalVisible" @close="closeModal" :data="currentData"></modal>
       <table class="table table-striped">

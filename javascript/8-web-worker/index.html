@@ -1,11 +1,20 @@
 <script>
-    if(window.Worker){
+    if (window.Worker) {
         let myWorker = new Worker("worker.js");
-        let message = {addThis:[1,2]}
-        myWorker.postMessage(message);
-        myWorker.onmessage = function(e){
-            console.log(e);
-            console.dir(e.data.result);
+        let message = { addThis: [1, 2], diviveThis: [] }
+        let messages = [
+            { operation: 'sum', values: [1, 2, 3, 4, 5, 6] },
+            { operation: 'sub', values: [10, 1] },
+            { operation: 'mult', values: [2, 4, 6, 8] },
+            { operation: 'div', values: [360, 12] }
+        ];
+        messages.forEach(function (msg) {
+            myWorker.postMessage(msg);
+        });
+        myWorker.onmessage = function (e) {
+            let div = document.createElement('div');
+            div.innerHTML = "Operação: " + e.data.operation + " [" + e.data.values + "]" + "<br>Status: " + e.data.status + "<br> Result: " + e.data.result + "<br><br>";
+            document.body.appendChild(div);
         }
     }
 </script>

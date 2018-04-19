@@ -4,26 +4,26 @@ e exibindo um modal com os detalhes ao selecionar um registro;
 
 DONE - 2) Utilizar ES6 com conceitos de modularização e orientação a objetos;
 
-INIT - 3) Manipular data e hora, trabalhando com periodos de tempo, timezone, e manipulação de 
+DONE - 3) Manipular data e hora, trabalhando com periodos de tempo, timezone, e manipulação de 
 partes individuais da data e hora;
 
 DONE - 4) Criar processamentos assincronos, utilizando callbacks, com tratamento de erro e sucesso;
 
-INIT - 5) Criar classes utilizando o prototype do ES5, utilizando herança para abstrair comportamentos, e 
+DONE - 5) Criar classes utilizando o prototype do ES5, utilizando herança para abstrair comportamentos, e 
 modificar comportamento de uma classe pré-existente;
 
-INIT - 6) Conectar com uma API de WebSocket com autenticação, consumindo pelo menos dois eventos distintos 
+DONE - 6) Conectar com uma API de WebSocket com autenticação, consumindo pelo menos dois eventos distintos 
 que necessitem processamento da informação e atualização do estado da tela em tempo real.
 
-7) Criar no minimo dois componentes de input e um componente visual com WebComponents, utilizando o 
+DONE -7) Criar no minimo dois componentes de input e um componente visual com WebComponents, utilizando o 
 conceito de ShadowDom, templates e decorators, e incluindo os componentes na tela utilizando o conceito de "import";
 
-INIT - 8) Criar WebWorker que recebe informaçõe da tela e a atualiza;
+DONE -8) Criar WebWorker que recebe informaçõe da tela e a atualiza;
 
-9) Trabalhar com armazenamento do estado da tela offline utilizando storage, e sincronizando 
+DONE - 9) Trabalhar com armazenamento do estado da tela offline utilizando storage, e sincronizando 
 as informações quando retomar a conexão;
 
-10) Criar um elemento canvas que se atualiza utilizando eventos externos;
+DONE -10) Criar um elemento canvas que se atualiza utilizando eventos externos;
 
 INIT - 11) Fazer uso de eventos em elementos de tela, utilizando o conceito de bubbling e o método preventDefault;
 
