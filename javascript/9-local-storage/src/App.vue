@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png">
-    <HelloWorld/> -->
      <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -21,7 +19,6 @@
             <label>Estado</label>
             <input type="text" v-model="currentData.estado" class="form-control">
           </div>
-          </button>
           <button class="btn btn-primary btn-block"  v-on:click="addRegistro(currentData)">Adicionar</button>
         </div>
       </div>
@@ -34,6 +31,8 @@
             <th>Telefone</th>
             <th>Cidade</th>
             <th>Estado</th>
+            <th>-</th>
+            <th>-</th>
           </tr>
         </thead>
         <tbody>
@@ -42,6 +41,7 @@
             <td>{{reg.telefone}}</td>
             <td>{{reg.cidade}}</td>
             <td>{{reg.estado}}</td>
+            <td><button class="btn btn-default"  v-on:click="alterar(reg)">Alterar</button></td>
             <td><button class="btn btn-warning"  v-on:click="remove(reg)">Remover</button></td>
           </tr>
         </tbody>
@@ -52,13 +52,10 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld
-  },
+  
   data() {
     return {
       currentData: {},
@@ -85,7 +82,7 @@ export default {
   },
   methods: {
     clearStorage: function() {
-      this.registrosSalvo = [];
+      this.registrosSalvos = [];
       this.storageInstance.clear();
     },
     addRegistro: function(el) {
@@ -97,6 +94,10 @@ export default {
       });
       this.currentData = {};
       this.storageInstance.set(this.registrosSalvos);
+    },
+    alterar: function(e) {
+      this.currentData = e;
+      this.registrosSalvos = this.registrosSalvos.filter(el => el != e);
     },
     remove: function(e) {
       this.registrosSalvos = this.registrosSalvos.filter(el => el != e);

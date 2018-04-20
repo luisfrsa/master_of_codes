@@ -3,17 +3,29 @@
         let myWorker = new Worker("worker.js");
         let message = { addThis: [1, 2], diviveThis: [] }
         let messages = [
-            { operation: 'sum', values: [1, 2, 3, 4, 5, 6] },
+            { operation: 'sum', values: [2, 4, 6, 8] },
             { operation: 'sub', values: [10, 1] },
-            { operation: 'mult', values: [2, 4, 6, 8] },
+            { operation: 'mult', values: [1, 2] },
             { operation: 'div', values: [360, 12] }
         ];
-        messages.forEach(function (msg) {
-            myWorker.postMessage(msg);
-        });
+        setInterval(() => {
+            messages = messages.map((el) => {
+                if (el.operation == 'sum' || el.operation == 'mult') {
+                    el.values.push(el.values[el.values.length - 1] * 2);
+                } else {
+                    el.values = el.values.map(num => num * 2);
+                }
+                return el;
+            });
+            messages.forEach(function (msg) {
+                myWorker.postMessage(msg);
+            });
+        }, 2000);
+
+
         myWorker.onmessage = function (e) {
             let div = document.createElement('div');
-            div.innerHTML = "Operação: " + e.data.operation + " [" + e.data.values + "]" + "<br>Status: " + e.data.status + "<br> Result: " + e.data.result + "<br><br>";
+            div.innerHTML = "Operação: " + e.data.operation + " [" + e.data.values + "]" + "<br>Status: " + e.data.status + "<br> Result: " + e.data.result + "<br><br>--------------------------------------";
             document.body.appendChild(div);
         }
     }

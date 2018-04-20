@@ -12,7 +12,7 @@ let AjaxGetCallback = function (id, callback, url) {
                 callback(xhttp.status, xhttp.responseText, url);
             } else {
                 console.log('Occorreu um erro ao requisitar Get na url ' + url);
-                callback(xhttp.status, xhttp.responseText, url);
+                callback(xhttp.status, "Response muito grande para printar", url);
             }
         }
     }
@@ -22,7 +22,7 @@ let AjaxGetCallback = function (id, callback, url) {
 const urlOk = 'https://httpbin.org/anything';
 const url404 = 'https://httpbin.org/404';
 const callback = function (status, response, url) {
-    console.log("I am a callback!");
+    console.log("I am a callback! from "+url);
     console.log("Status " + status);
     console.log("Response");
     console.log(response);
@@ -30,8 +30,8 @@ const callback = function (status, response, url) {
 }
 
 new AjaxGetCallback(1, callback, urlOk);
-new AjaxGetCallback(2, callback, urlOk);
+new AjaxGetCallback(2, callback, url404);
 new AjaxGetCallback(3, callback, urlOk);
 new AjaxGetCallback(4, callback, url404);
-new AjaxGetCallback(5, callback, url404);
+new AjaxGetCallback(5, callback, urlOk);
 new AjaxGetCallback(6, callback, url404);

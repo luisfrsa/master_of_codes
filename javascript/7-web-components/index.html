@@ -20,7 +20,7 @@
                 progress100 = document.getElementById('ahundread'),
                 completePercent = 0,
                 completeBG = 0,
-                speed = 1,
+                speed = 3,
                 cores = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF', '#C0C0C0', '#808080', '#800000', '#808000', '#008000', '#800080', '#008080', '#000080', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF', '#C0C0C0', '#808080', '#800000', '#808000', '#008000', '#800080', '#008080', '#000080'];
 
             let progressIntervalPercent = setInterval(() => {
@@ -37,7 +37,7 @@
 
             let progressIntervalColor = setInterval(() => {
                 completeBG++;
-                if (completeBG <= 100) {
+                if (completeBG <= 10) {
                     progress0.setAttribute('corfundo', cores[(completeBG) % cores.length - 1]);
                     progress100.setAttribute('corfundo', cores[(completeBG+2) % cores.length - 1]);
                 } else {
