@@ -27,7 +27,7 @@ DONE -10) Criar um elemento canvas que se atualiza utilizando eventos externos;
 
 INIT - 11) Fazer uso de eventos em elementos de tela, utilizando o conceito de bubbling e o método preventDefault;
 
-12) Criar formulário com campos que habilitam conforme valores selecionados, com validação de dados, exibindo os 
+DONE -12) Criar formulário com campos que habilitam conforme valores selecionados, com validação de dados, exibindo os 
 labels e a formatação de data e numero conforme a localização do usuário, e com pelo menos dois campos com mascaras e um campo numérico;
 
 13) Realizar chamadas POST e GET com Ajax, com autenticação, trafegando informações do tipo JSON e XML, com 

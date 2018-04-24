@@ -7,46 +7,16 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="progressbar.js"></script>
+    <script src="mymodal.js"></script>
 </head>
 
 <body>
-    <progress-bar id="zero" corfundo="blue" complete="0"></progress-bar>
-    <br/>
-    <br/>
-    <progress-bar id="ahundread" corfundo="blue" complete="100"></progress-bar>
-    <script>
-        (function () {
-            let progress0 = document.getElementById('zero'),
-                progress100 = document.getElementById('ahundread'),
-                completePercent = 0,
-                completeBG = 0,
-                speed = 3,
-                cores = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF', '#C0C0C0', '#808080', '#800000', '#808000', '#008000', '#800080', '#008080', '#000080', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF', '#C0C0C0', '#808080', '#800000', '#808000', '#008000', '#800080', '#008080', '#000080'];
-
-            let progressIntervalPercent = setInterval(() => {
-                completePercent++;
-                if (completePercent <= 100) {
-                    progress0.setAttribute('complete', completePercent);
-                    progress100.setAttribute('complete', 100 - completePercent);
-                } else {
-                    clearInterval(progressIntervalPercent);
-                }
-            }, speed * 100);
-            progress0.setAttribute('corfundo', cores[0]);
-            progress100.setAttribute('corfundo', cores[2]);
-
-            let progressIntervalColor = setInterval(() => {
-                completeBG++;
-                if (completeBG <= 10) {
-                    progress0.setAttribute('corfundo', cores[(completeBG) % cores.length - 1]);
-                    progress100.setAttribute('corfundo', cores[(completeBG+2) % cores.length - 1]);
-                } else {
-                    clearInterval(progressIntervalColor);
-                }
-            }, speed * 1000);
-
-        })();
-    </script>
+    <progress-bar id="zero" corfundo="blue" complete="0"></progress-bar> <br/> <br/>
+    <progress-bar id="ahundread" corfundo="blue" complete="100"></progress-bar> <br/> <br/>
+    <my-modal id="modal1" title="Título 1" body="Modal content from modal 1"></my-modal>
+    <my-modal id="modal2" title="Título 2" body="Modal content from modal 2"></my-modal>
+    <button onclick="openModal(1)" >Open modal 1</button>
+    <button onclick="openModal(2)" >Open modal 2</button>
+    <script src="app.js"></script>
 </body>
-
 </html>

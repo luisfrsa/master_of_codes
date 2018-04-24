@@ -1,4 +1,3 @@
-//https://www.youtube.com/watch?v=Tus_GVxyOtU
 class ProgressBar extends HTMLElement {
 
   constructor() {
@@ -33,14 +32,14 @@ class ProgressBar extends HTMLElement {
     switch (name) {
       case 'complete':
         this._complete = parseInt(newVal, 10) || 0;
-        currentBar.style.width = this.complete + '%';
-        if (currentBar.style) {
+        if (currentBar && currentBar.style) {
+          currentBar.style.width = this.complete + '%';
           currentBar.innerHTML = this.complete + '%';
         }
         break;
       case 'corfundo':
         this._corfundo = newVal;
-        if (currentBar.style) {
+        if (currentBar && currentBar.style) {
           currentBar.style.background = newVal;
         }
         break;
@@ -59,6 +58,7 @@ class ProgressBar extends HTMLElement {
         }
          .progress-bar-inner {
           height: 100%;
+          width:0%;
           line-height: 30px;
           text-align: center;
           border-radius: 5px;
